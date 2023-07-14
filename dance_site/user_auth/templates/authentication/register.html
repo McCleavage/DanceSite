@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+
+{% block content %}
+<!--Registration page, takes form argument-->
+<h3>Register here</h3>
+<hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

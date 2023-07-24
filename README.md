@@ -18,8 +18,8 @@ Then, to run the web server locally, open command prompt in the root directory o
 python manage.py runserver
 ```
 You should see:
-![[Pasted image 20230724122123.png]]
+![image](https://github.com/McCleavage/DanceSite/assets/137903276/869e8bbd-fd0b-413e-bdd6-17b96fac768d)
 Simply click the link to open the web site in your browser:
-![[Pasted image 20230724122345.png]]
+![image](https://github.com/McCleavage/DanceSite/assets/137903276/265a44e5-58f9-4b5f-8dd9-634734ff8fa6)
 ## Credits
 This project was authored solely by [McCleavage (github.com)](https://github.com/McCleavage)

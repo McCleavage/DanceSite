@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+<!--Here, content of a single blog post is loaded-->
+{% block content %}
+
+<!--Display basic information in row-->
+<div class = "row">
+    <div class="col-md-2">
+        <h1>{{ style.name }}</h1>
+    </div>
+    <div class="col-md-3">
+        <h3>Category: {{ style.get_category_display }}</h3>
+    </div>
+    <div class="col-md-3">
+        <h3>Rating: {{ style.get_rating_display}}</h3>
+    </div>
+</div>
+<hr>
+<!--Display dance description and an image-->
+<div class="row">
+    <div class="col-md-8">
+        <h3><b>Dance Description</b></h3>
+    </div>
+    <div class="col-md-4">
+        <h3><b>In Action</b></h3>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        {{ style.description|safe}}
+    </div>
+    <div class="col-md-4">
+        <img src= "{{ style.image.url }}" class = "img-fluid img-thumbnail" alt="">
+    </div>
+</div>
+
+{% endblock %}

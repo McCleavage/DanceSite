@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--Load any media from static folder-->
+{% load static %}
+
+<!--This html file acts as a site-wide header to make navigation straightforward-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Da Stu's Dancing Styles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--Commented out my stylesheet due to it conflicting with some bootstrap settings-->
+    <link href = "{% static 'noicestyle.css' %}" rel = "stylesheet" type = "text/css" />
+</head>
+<body>
+    <!--Provides links for returning to the homepages of the various parts of the site-->
+    <div class="row bg-primary text-white align-items-center">
+        <div class="col-md-1">
+            <img src="{% static 'images/swing.jpg' %}" class = "img-fluid" alt="">
+        </div>
+        <div class="col-md-5">
+            <h1 id="mainheading">Da Stu's Dancing Styles</h1>
+        </div>
+        <div class="col-md-2">
+            <button class = "btn-default">
+                <a href = "/"> Main Homepage </a>
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button class = "btn-default">
+                <a href = "/styles"> Style Homepage </a>
+            </button>
+        </div>
+        <div class="col-md-2 align-items-end">
+            {% if user.is_authenticated %}
+                Welcome, {{user.username}}
+                <a class="text-white" href="{% url 'user_auth:logout' %}">Logout</a>
+            {% else %}
+                <a class="text-white" href="{% url 'user_auth:login' %}">Login</a>
+                <a class="text-white" href="{% url 'user_auth:register' %}">Signup</a>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <!--Here is where the content of the blog post or blog homepage is loaded-->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -6,7 +6,7 @@ from .forms import UserRegistrationForm
 # Create your views here.
 
 
-# Delivers registration page, registers user
+# Delivers registration page, registers user with user database
 def register_user(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -20,12 +20,12 @@ def register_user(request):
     return render(request, 'authentication/register.html', context)
 
 
-# Delivers login page
+# Delivers login page after login button pressed
 def user_login(request):
     return render(request, 'authentication/login.html')
 
 
-# Logout function
+# Logout function, simply redirects to home
 def user_logout(request):
     logout(request)
     return redirect('home')

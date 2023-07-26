@@ -52,8 +52,6 @@ def user_logout(request):
     return redirect('home')
 
 
-# Authentication function, send user to home if authenticated
-# redirects to login page if not authenticated
 def authenticate_user(request):
     """This function is used to authenticate the user, then redirect to appropriate page
 

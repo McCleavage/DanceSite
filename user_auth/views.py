@@ -6,8 +6,15 @@ from .forms import UserRegistrationForm
 # Create your views here.
 
 
-# Delivers registration page, registers user with user database
 def register_user(request):
+    """This function is used to deliver the registration page
+
+        :param WSGIRequest request: The web server request
+
+        :returns: The rendered registration page
+
+        :rtype: HttpResponse
+    """
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -20,13 +27,27 @@ def register_user(request):
     return render(request, 'authentication/register.html', context)
 
 
-# Delivers login page after login button pressed
 def user_login(request):
+    """This function is used to deliver the login page
+
+        :param WSGIRequest request: The web server request
+
+        :returns: The rendered login page
+
+        :rtype: HttpResponse
+    """
     return render(request, 'authentication/login.html')
 
 
-# Logout function, simply redirects to home
 def user_logout(request):
+    """Logs out user, then returns home page
+
+        :param WSGIRequest request: The web server request
+
+        :returns: The rendered home page
+
+        :rtype: HttpResponseRedirect
+    """
     logout(request)
     return redirect('home')
 
@@ -34,6 +55,14 @@ def user_logout(request):
 # Authentication function, send user to home if authenticated
 # redirects to login page if not authenticated
 def authenticate_user(request):
+    """This function is used to authenticate the user, then redirect to appropriate page
+
+        :param WSGIRequest request: The web server request
+
+        :returns: A redirect to either the login or home page, depending on if authenticated
+
+        :rtype: HttpResponseRedirect
+    """
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)

@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
 
+# User_auth urls
+# Show_user url path removed due to being redundant
 app_name = 'user_auth'
 urlpatterns = [
     path('', views.user_login, name='login'),

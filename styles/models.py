@@ -11,9 +11,20 @@ STARS = (('1', '*'),
          ('5', '* * * * *'))
 
 
-# The Style model stores information about each dance style,
-# namely name, category, rating and description
 class Style(models.Model):
+    """This class stores the model details of each style
+
+        :param CharField name: The name of the dance
+        :param CharField category: Two choices for the style category
+        :param CharField rating: Five choices for the dance's rating 1 star to 5 stars
+        :param TextField description: Text description of the dance;
+                                      contains the html describing the main body of the webpage
+        :param ImageField image: Image field storing an image of the dance
+        :returns: The rendered index page
+
+        :rtype: HttpResponse
+    """
+
     name = models.CharField(max_length=140)
     category = models.CharField(max_length=3, choices=CATEGORIES, default='STD')
     rating = models.CharField(max_length=1, choices=STARS, default='5')
